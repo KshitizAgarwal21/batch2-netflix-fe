@@ -1,0 +1,67 @@
+.App{
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.8)), url("https://thedrum-media.imgix.net/thedrum-prod/s3/news/tmp/10557/netflix_29.jpg?w=608&ar=default&fit=crop&crop=faces,edges&auto=format&q=40&dpr=2");
+  /* background-image: url("https://thedrum-media.imgix.net/thedrum-prod/s3/news/tmp/10557/netflix_29.jpg?w=608&ar=default&fit=crop&crop=faces,edges&auto=format&q=40&dpr=2"); */
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+}
+
+.hero-text{
+  color: white;
+ align-items: center;
+ 
+  position: absolute;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+height: 80vh;
+  justify-content: center;
+  
+}
+.hero-text h1{
+  font-size: 48px;
+}
+.hero-text h2 {
+font-size: 32px;
+margin: 0;
+}
+.hero-text h3 {
+  font-size: 24px;
+
+  }
+  .input-action{
+    display: flex;
+    width: 32%;
+    gap: 10px;
+    justify-content: center;
+  }
+  .home-email{
+    width: 300px;
+    border: 1px solid #ededed;
+    height: 42px;
+    border-radius: 5px;
+    background-color: transparent;
+    padding: 20px;
+    box-sizing: border-box;
+  }
+  .home-email::placeholder{
+    color: #fff;
+  }
+  .startup{
+    background-color: red;
+    border: none;
+    border-radius: 10px;
+    height: 45px;
+    color: #fff;
+    font-weight: bold;
+    font-size: 18px;
+    width: fit-content;
+    cursor: pointer;
+  }
+
+  .content-container{
+   
+  }
+

@@ -1,0 +1,33 @@
+.feat{
+    border-top: 10px solid gray;
+    width: 100%;
+   justify-content: center;
+    display: flex;
+    margin: 0 auto;
+    align-items: center;
+
+    
+}
+.feat-text{
+    color: #fff;
+    width: 40%;
+    height: 100%;
+
+    text-align: center;
+    
+}
+.feat-image{
+    width: 40%;
+    position: relative;
+}
+.feat-text h2{
+    font-size: 54px;
+}
+.feat-text h3{
+    font-size: 28px;
+}
+.video{
+    position: absolute;
+    top: 98px;
+    left: 78px;
+}
