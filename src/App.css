@@ -45,6 +45,8 @@ margin: 0;
     background-color: transparent;
     padding: 20px;
     box-sizing: border-box;
+    color: #fff;
+    font-size: 20px;
   }
   .home-email::placeholder{
     color: #fff;
@@ -64,4 +66,33 @@ margin: 0;
   .content-container{
    
   }
+  .accordions{
+    border-top: 10px solid gray;
+    text-align: center;
+    color: #fff;
+  }
+  .accordions h1{
+    text-align: center;
+    color: #fff;
+    font-size: 54px;
+    font-weight: bold;
+  }
 
+  footer{
+    margin-top: 100px;
+    border-top: 10px solid gray;
+    height: 500px;
+    color: #fff;
+    padding: 50px;
+    box-sizing: border-box;
+  
+  }
+
+.footer-content{
+  display: flex;
+  text-decoration: underline;
+}
+.copyright{
+  text-decoration: none !important;
+  font-size: 14px;
+}

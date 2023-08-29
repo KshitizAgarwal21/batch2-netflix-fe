@@ -5,19 +5,19 @@
     display: flex;
     margin: 0 auto;
     align-items: center;
-
-    
+padding: 0 50px 0 50px;
+    box-sizing: border-box;
 }
 .feat-text{
     color: #fff;
-    width: 40%;
+    width: 50%;
     height: 100%;
 
     text-align: center;
     
 }
 .feat-image{
-    width: 40%;
+    width: 50%;
     position: relative;
 }
 .feat-text h2{
@@ -30,4 +30,13 @@
     position: absolute;
     top: 98px;
     left: 78px;
+    z-index: -1;
+}
+.small-video{
+    position: absolute;
+    top: 44px;
+    left: 0;
+    width: 640px;
+    height: 225px;
+    z-index: -1;
 }

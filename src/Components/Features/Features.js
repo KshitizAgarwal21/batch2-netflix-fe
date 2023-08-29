@@ -3,11 +3,7 @@ import "./feat.css";
 import tv from "../../assets/tv.png";
 export default function Features(props) {
   const { order } = props.data;
-  useEffect(() => {
-    if (document.getElementById("vid")) {
-      document.getElementById("vid").play();
-    }
-  }, []);
+
   return (
     <>
       {order && (
@@ -20,11 +16,11 @@ export default function Features(props) {
             <div className="feat-image">
               <img src={props.data.url}></img>
               <video
-                className="video"
-                id="vid"
-                src="https://assets.nflxext.com/ffe/siteui/acquisition/ourStory/fuji/desktop/video-tv-in-0819.m4v"
-                autoplay
+                className={props.data.size ? "video " : "small-video "}
+                src={props.data.vidUrl}
+                autoPlay
                 muted
+                loop
               ></video>
             </div>
           </div>
