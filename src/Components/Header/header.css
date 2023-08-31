@@ -5,6 +5,7 @@
 header{
     display: flex;
     justify-content: space-around;
+   
 }
 .action{
     margin-top: 40px;

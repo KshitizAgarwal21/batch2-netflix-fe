@@ -1,4 +1,5 @@
 import React from "react";
+import Footer from "../Footer/Footer";
 import Header from "../Header/Header";
 export default function Login() {
   return (
@@ -9,6 +10,7 @@ export default function Login() {
           <Header />
         </div>
       </div>
+      <Footer />
     </div>
   );
 }
