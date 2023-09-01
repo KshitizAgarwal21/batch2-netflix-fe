@@ -1,11 +1,12 @@
-header{
+.dynamic-header{
     position: fixed;
     width: 100%;
     z-index: 100;
+    background: rgba(0, 0, 0, 0.1);
 }
 .authlogo{
     width: 180px;
-    height: 100px;
+    height: 80px;
 }
 .authmenu li{
     display: inline-block;
@@ -30,5 +31,38 @@ header{
     justify-content: space-evenly;
 }
 .myselect{
+    height: 90%;
     cursor: pointer;
+    background-color: dodgerblue;
+    padding: 0px 5px 0px 5px;
+}
+.myselect:hover .auth-action{
+    display: block;
+}
+.myselect:hover .upsidedown{
+    transform: (1,1);
+    display: inline-block;
+}
+.auth-action{
+    display: none;
+width: 150px;
+    position: absolute;
+    right: 20px;
+    margin-top: -5px;
+    background-color:rgba(0, 0, 0, 0.8);
+
+}
+.auth-action-ul{
+    padding: 10px;
+}
+.auth-action-ul li{
+    list-style: none;
+}
+.upsidedown{
+    -moz-transform: scale(-1, -1);
+    -webkit-transform: scale(-1, -1);
+    -o-transform: scale(-1, -1);
+    -ms-transform: scale(-1, -1);
+    transform: scale(-1, -1);
+    display: inline-block;
 }

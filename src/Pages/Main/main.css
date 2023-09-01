@@ -1,7 +1,7 @@
 .live-banner{
     position: relative;
     width: 100%;
-    height: 10000px;
+    
     background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.8));
 }
 .player{
@@ -9,4 +9,34 @@
     width: 100%;
     height: 100vh;
     
+}
+.live-hero-text{
+    position: absolute;
+    color: #fff;
+    top: 179px;
+    font-size: 32px;
+    left: 30px;
+}
+.live-play{
+    background-color: #fff;
+    color: black;
+    width: 100px;
+    height: 40px;
+    border: none;
+border-radius: 2px;
+font-weight: bold;
+font-size: 20px;
+cursor: pointer;
+}
+.live-info{
+    background-color: grey;
+    color: #fff;
+    width: 120px;
+    height: 40px;
+    border: none;
+border-radius: 2px;
+margin-left: 10px;
+font-weight: bold;
+font-size: 20px;
+cursor: pointer;
 }
