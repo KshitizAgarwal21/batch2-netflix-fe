@@ -7,6 +7,7 @@ import Login from "./Components/Login/Login";
 import Home from "./Pages/Home";
 import ProtectedLayout from "./Components/ProtectedLayout/ProtectedLayout";
 import Main from "./Pages/Main/Main";
+import PlayMovie from "./Pages/PlayMovie/PlayMovie";
 
 function App() {
   return (
@@ -15,8 +16,9 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />
-          <Route path="/browse" element={<ProtectedLayout />}>
+          <Route path="/" element={<ProtectedLayout />}>
             <Route path="/browse" element={<Main />} />
+            <Route path="/play/:id" element={<PlayMovie />} />
           </Route>
         </Routes>
       </BrowserRouter>

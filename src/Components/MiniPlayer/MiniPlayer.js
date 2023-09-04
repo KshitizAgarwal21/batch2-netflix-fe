@@ -3,10 +3,13 @@ import PlayCircleOutlineIcon from "@mui/icons-material/PlayCircleOutline";
 import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
 import ThumbUpOffAltIcon from "@mui/icons-material/ThumbUpOffAlt";
 import ReactPlayer from "react-player";
+import { useNavigate } from "react-router-dom";
+
 let mytimeout;
-export default function MiniPlayer() {
+export default function MiniPlayer(props) {
   const [play, setPlay] = useState(false);
   const [muted, setMuted] = useState(true);
+  const navigate = useNavigate();
   const handleMouseOver = () => {
     mytimeout = setTimeout(() => {
       setPlay(true);
@@ -19,11 +22,19 @@ export default function MiniPlayer() {
     clearTimeout(mytimeout);
     setPlay(false);
   };
+  const navigateToPlayer = () => {
+    navigate(`/play/${props.elem}`);
+  };
   return (
-    <div onMouseEnter={handleMouseOver} onMouseLeave={pause}>
+    <div
+      onMouseEnter={handleMouseOver}
+      onMouseLeave={pause}
+      className="hoverclass"
+      onClick={navigateToPlayer}
+    >
       <ReactPlayer
         className="mini-player"
-        url="https://www.youtube.com/watch?v=WCrmkX35Xks"
+        url="https://assets.nflxext.com/ffe/siteui/acquisition/ourStory/fuji/desktop/video-tv-in-0819.m4v"
         width="100%"
         height="100%"
         playing={play}
@@ -40,7 +51,6 @@ export default function MiniPlayer() {
           <PlayCircleOutlineIcon className="mini-play" />
           <AddCircleOutlineIcon className="mini-add" />
           <ThumbUpOffAltIcon className="mini-like" />
-
           <span onClick={() => setMuted(false)}>Unmute</span>
         </div>
         <p>UA Certfied</p>
