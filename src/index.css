@@ -7,4 +7,11 @@ body {
   -moz-osx-font-smoothing: grayscale;
   background-color: black;
 }
+.selected-movie{
+
+  width: 100%;
+  height: 100vh;
+  position: absolute;
+  margin-top: 80px;
+}
 

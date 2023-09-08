@@ -3,8 +3,10 @@ import "./main.css";
 import ReactPlayer from "react-player";
 import AuthHeader from "./AuthHeader";
 import MovieCarousel from "../../Components/MovieCarousel/MovieCarousel";
+import axios from "axios";
 export default function Main() {
   const [opacity, setOpacity] = useState(0.1);
+  const [bannerMovie, setBannerMovie] = useState({});
   const handleScroll = () => {
     const scrollPosition = window.scrollY; // => scroll position
     if (scrollPosition > 10) {
@@ -13,7 +15,14 @@ export default function Main() {
       setOpacity(0.1);
     }
   };
+
+  const getBannerMovie = async () => {
+    const res = await axios.get("http://localhost:8080/homepage/bannermovie");
+
+    setBannerMovie(res.data.result);
+  };
   useEffect(() => {
+    getBannerMovie();
     handleScroll();
     window.addEventListener("scroll", handleScroll);
     return () => {
@@ -27,15 +36,15 @@ export default function Main() {
         <div className="player">
           <ReactPlayer
             className="react-player"
-            url="https://www.youtube.com/watch?v=WCrmkX35Xks"
+            url={bannerMovie?.url}
             width="100%"
             height="100%"
             playing={true}
           />
         </div>
         <div className="live-hero-text">
-          <h1>Movie Title</h1>
-          <p>Some description</p>
+          <h1>{bannerMovie?.title}</h1>
+          <p>{bannerMovie?.description}</p>
 
           <div className="live-buttons">
             <button className="live-play">Play {">"}</button>

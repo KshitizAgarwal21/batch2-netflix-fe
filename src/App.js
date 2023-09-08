@@ -14,7 +14,6 @@ function App() {
     <>
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />
           <Route path="/" element={<ProtectedLayout />}>
             <Route path="/browse" element={<Main />} />

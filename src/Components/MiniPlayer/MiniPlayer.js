@@ -34,12 +34,11 @@ export default function MiniPlayer(props) {
     >
       <ReactPlayer
         className="mini-player"
-        url="https://assets.nflxext.com/ffe/siteui/acquisition/ourStory/fuji/desktop/video-tv-in-0819.m4v"
+        url={props.elem.url}
         width="100%"
         height="100%"
         playing={play}
         muted={muted}
-        volume
       />
       {/* <video
         className="mini-player"
@@ -53,11 +52,11 @@ export default function MiniPlayer(props) {
           <ThumbUpOffAltIcon className="mini-like" />
           <span onClick={() => setMuted(false)}>Unmute</span>
         </div>
-        <p>UA Certfied</p>
+        <p>{props.elem.adult ? "Adult" : "UA"} Certfied</p>
         <div className="mini-details">
-          <span>Movie Name o</span>
-          <span> Release date o</span>
-          <span> Rating</span>
+          <span>{props.elem.title} o</span>
+          <span> {props.elem.release_date} o</span>
+          <span> {props.elem.vote_average}</span>
         </div>
       </div>
     </div>
