@@ -7,16 +7,23 @@ const MiniPlayerLazy = React.lazy(() => import("../MiniPlayer/MiniPlayer"));
 export default function MovieCarousel() {
   // const arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
   const [movies, setMovies] = useState([]);
-
+  const [pmovies, setpMovies] = useState([]);
   const getTopMovies = async () => {
     const res = await axios.get("http://localhost:8080/homepage/topMovies");
 
     console.log(res.data);
     setMovies(res.data);
   };
+  const getPopularMovies = async () => {
+    const res = await axios.get("http://localhost:8080/homepage/popularMovies");
+
+    console.log(res.data);
+    setpMovies(res.data);
+  };
 
   useEffect(() => {
     getTopMovies();
+    getPopularMovies();
   }, []);
   const numberOfCarousels = 10;
   return (
@@ -40,16 +47,16 @@ export default function MovieCarousel() {
           </div>
         </div>
       </div>
-      {/* <div className="overlap" style={{ zIndex: numberOfCarousels - 1 }}>
+      <div className="overlap" style={{ zIndex: numberOfCarousels - 1 }}>
         <div className="paddeddiv">
           {" "}
-          <h1>Top English</h1>
+          <h1>Popular Movies</h1>
           <div className="movie-carousel">
-            {movies?.map((elem) => {
+            {pmovies?.map((elem) => {
               return (
                 <>
                   <div className="card">
-                    <MiniPlayer />
+                    <MiniPlayer elem={elem} />
                   </div>
                 </>
               );
@@ -57,7 +64,7 @@ export default function MovieCarousel() {
           </div>
         </div>
       </div>
-      <div className="overlap" style={{ zIndex: numberOfCarousels - 2 }}>
+      {/* <div className="overlap" style={{ zIndex: numberOfCarousels - 2 }}>
         <div className="paddeddiv">
           {" "}
           <h1>Top English</h1>

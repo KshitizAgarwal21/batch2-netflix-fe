@@ -23,7 +23,7 @@ export default function MiniPlayer(props) {
     setPlay(false);
   };
   const navigateToPlayer = () => {
-    navigate(`/play/${props.elem}`);
+    navigate(`/play/${props.elem.id}`);
   };
   return (
     <div
