@@ -10,15 +10,15 @@ export default function PlayMovie() {
   const [startFrom, setStartFrom] = useState();
   const playerRef = useRef();
   const [isReady, setIsReady] = React.useState(false);
-
+  const [durationWatched, setDurationWatched] = useState(0);
+  let finalDuration;
   const onReady = React.useCallback(() => {
     if (!isReady) {
-      console.log(startFrom);
-      const timeToStart = 100;
+      const timeToStart = startFrom;
       playerRef.current.seekTo(timeToStart, "seconds");
       setIsReady(true);
     }
-  }, [isReady]);
+  }, [isReady, startFrom]);
   const getMovieDetails = async () => {
     const res = await axios.post("http://localhost:8080/playmovie/getmovie", {
       id: id,
@@ -34,6 +34,17 @@ export default function PlayMovie() {
     getMovieDetails();
   }, []);
 
+  useEffect(() => {
+    return () => {
+      updateLiveData();
+    };
+  }, []);
+  const updateLiveData = async () => {
+    const res = await axios.post(
+      "http://localhost:8080/currentlyviewing/addCurrent/",
+      { id: parseInt(id), durationWatched: "100" }
+    );
+  };
   return (
     <div style={{ color: "#fff" }}>
       <AuthHeader />
@@ -46,6 +57,9 @@ export default function PlayMovie() {
           width="100%"
           height="100%"
           controls={true}
+          onProgress={(progress) => {
+            setDurationWatched(progress.playedSeconds);
+          }}
           //  playing={play}
           //  muted={muted}
         />
