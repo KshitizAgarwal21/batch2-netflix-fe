@@ -1,7 +1,9 @@
 import axios from "axios";
 import React, { useEffect, useRef, useState } from "react";
 import ReactPlayer from "react-player";
+import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
+import { setValue, updateDuration } from "../../redux/PlayMovie/slice";
 import AuthHeader from "../Main/AuthHeader";
 
 export default function PlayMovie() {
@@ -11,7 +13,7 @@ export default function PlayMovie() {
   const playerRef = useRef();
   const [isReady, setIsReady] = React.useState(false);
   const [durationWatched, setDurationWatched] = useState(0);
-  let finalDuration;
+  const value = useSelector((state) => state.value.data);
   const onReady = React.useCallback(() => {
     if (!isReady) {
       const timeToStart = startFrom;
@@ -19,6 +21,9 @@ export default function PlayMovie() {
       setIsReady(true);
     }
   }, [isReady, startFrom]);
+
+  const dispatch = useDispatch();
+
   const getMovieDetails = async () => {
     const res = await axios.post("http://localhost:8080/playmovie/getmovie", {
       id: id,
@@ -40,10 +45,12 @@ export default function PlayMovie() {
     };
   }, []);
   const updateLiveData = async () => {
-    const res = await axios.post(
-      "http://localhost:8080/currentlyviewing/addCurrent/",
-      { id: parseInt(id), durationWatched: "100" }
-    );
+    // const res = await axios.post(
+    //   "http://localhost:8080/currentlyviewing/addCurrent/",
+    //   { id: parseInt(id), durationWatched: value }
+    // );
+
+    dispatch(updateDuration({ id: parseInt(id) }));
   };
   return (
     <div style={{ color: "#fff" }}>
@@ -59,6 +66,7 @@ export default function PlayMovie() {
           controls={true}
           onProgress={(progress) => {
             setDurationWatched(progress.playedSeconds);
+            dispatch(setValue(progress.playedSeconds));
           }}
           //  playing={play}
           //  muted={muted}
